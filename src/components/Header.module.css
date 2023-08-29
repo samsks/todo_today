@@ -1,0 +1,21 @@
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+
+  height: 200px;
+}
+
+.header img {
+  width: 22px;
+}
+
+.header div strong {
+  font-size: 2.5rem;
+  color: var(--purple);
+}
+
+.header div strong:first-child {
+  color: var(--blue);
+}

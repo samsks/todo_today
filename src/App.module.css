@@ -1,0 +1,5 @@
+.bodyTasks {
+  width: 100vw;
+  height: calc(100vh - 200px);
+  background: var(--gray-600);
+}

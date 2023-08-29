@@ -1,13 +1,13 @@
-import { Container } from "./components/Container";
 import { Header } from "./components/Header";
+
 import "./global.css";
+import styles from "./App.module.css";
 
 function App() {
   return (
     <div>
-      <Container>
-        <Header />
-      </Container>
+      <Header />
+      <main className={styles.bodyTasks}></main>
     </div>
   );
 }

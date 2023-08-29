@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "streetsidesoftware.code-spell-checker",
+    "streetsidesoftware.code-spell-checker-portuguese-brazilian",
+    "meganrogge.template-string-converter",
+    "naumovs.color-highlight",
+    "clinyong.vscode-css-modules"
+  ]
+}

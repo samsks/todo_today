@@ -1,10 +1,13 @@
+import { Container } from "./components/Container";
 import { Header } from "./components/Header";
 import "./global.css";
 
 function App() {
   return (
     <div>
-      <Header />
+      <Container>
+        <Header />
+      </Container>
     </div>
   );
 }

@@ -1,10 +1,11 @@
+import "./global.css";
 
 function App() {
-
   return (
-    
-    <div><p>Plan with Purpose</p></div>
-  )
+    <div>
+      <p>Plan with Purpose</p>
+    </div>
+  );
 }
 
-export default App
+export default App;

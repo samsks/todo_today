@@ -1,0 +1,32 @@
+.summaryTask {
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.summaryLabels {
+  display: flex;
+  gap: 8px;
+
+  font-size: 0.875rem;
+  font-weight: bold;
+}
+
+.summaryLabels .created {
+  color: var(--blue);
+}
+
+.summaryLabels .finalized {
+  color: var(--purple);
+}
+
+.summaryLabels span {
+  font-size: 0.75rem;
+
+  color: var(--gray-200);
+
+  padding-inline: 0.5rem;
+  border-radius: 999px;
+  background-color: var(--gray-400);
+}

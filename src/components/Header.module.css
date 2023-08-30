@@ -3,8 +3,12 @@
   justify-content: center;
   align-items: center;
   gap: 12px;
-  max-width: 100%;
+  position: relative;
+
+  width: 100%;
   height: 200px;
+
+  user-select: none;
 }
 
 .header img {
@@ -14,8 +18,20 @@
 .header div strong {
   font-size: 2.5rem;
   color: var(--purple);
+
+  user-select: none;
+
+  transition: color 0.3s ease-in-out;
+}
+
+.header div strong:hover {
+  color: var(--blue-dark);
 }
 
 .header div strong:first-child {
   color: var(--blue);
+}
+
+.header div strong:first-child:hover {
+  color: var(--purple-dark);
 }

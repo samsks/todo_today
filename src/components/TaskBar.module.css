@@ -1,0 +1,62 @@
+.taskBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+
+  position: relative;
+  top: -27px;
+
+  width: 100%;
+  height: 54px;
+}
+
+.taskBar input {
+  width: 100%;
+  height: 100%;
+
+  padding: 1rem;
+  border: 1px solid var(--gray-700);
+  border-radius: 8px;
+
+  color: var(--gray-100);
+  font-size: 1rem;
+
+  background-color: var(--gray-500);
+}
+
+.taskBar input::placeholder {
+  color: var(--gray-300);
+}
+
+.taskBar input:focus {
+  border: 1px solid var(--purple-dark);
+}
+
+.taskBar button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+
+  height: 100%;
+  padding: 1rem;
+
+  border: none;
+  border-radius: 8px;
+
+  font-weight: bold;
+  font-size: 0.875rem;
+  color: var(--gray-100);
+  background-color: var(--blue-dark);
+
+  cursor: pointer;
+}
+
+.taskBar button:hover {
+  background-color: var(--blue);
+}
+
+.taskBar button svg {
+  width: 16px;
+}

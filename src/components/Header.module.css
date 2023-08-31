@@ -16,16 +16,21 @@
 }
 
 .header div strong {
+  display: inline-block;
   font-size: 2.5rem;
   color: var(--purple);
 
   user-select: none;
 
-  transition: color 0.3s ease-in-out;
+  transition:
+    color 0.3s ease-in-out,
+    transform 0.2s ease-in-out;
+  transform-origin: bottom center;
 }
 
 .header div strong:hover {
   color: var(--blue-dark);
+  transform: scale(1.2);
 }
 
 .header div strong:first-child {
@@ -34,4 +39,5 @@
 
 .header div strong:first-child:hover {
   color: var(--purple-dark);
+  transform: scale(1.2);
 }

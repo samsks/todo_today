@@ -1,0 +1,170 @@
+.taskCard {
+  width: 100%;
+  height: 72px;
+
+  display: flex;
+  gap: 12px;
+
+  padding: 16px;
+
+  background-color: var(--gray-400);
+  border-radius: 8px;
+  border: 1px solid var(--gray-300);
+
+  position: relative;
+}
+
+.taskCard:hover {
+  animation: animateBorder 1.2s linear infinite;
+}
+
+@keyframes animateBorder {
+  0%,
+  100% {
+    border-color: var(--gray-300);
+    border-top-color: var(--blue);
+  }
+  45% {
+    border-right-color: var(--blue);
+  }
+  50% {
+    border-top-color: var(--gray-300);
+    border-bottom-color: var(--purple);
+  }
+  95% {
+    border-left-color: var(--purple);
+  }
+}
+
+.taskCard > .checkContainer {
+  display: block;
+  position: relative;
+
+  width: 24px;
+  height: 24px;
+
+  padding-right: calc(17.5px + 4px);
+  margin-top: 4px;
+
+  cursor: pointer;
+
+  font-size: 22px;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.checkText > p {
+  color: var(--gray-300);
+  text-decoration: line-through;
+}
+
+.checkContainer > input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 17.45px;
+  height: 17.45px;
+
+  border: 2px solid var(--blue);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.checkContainer:hover input[type="checkbox"] ~ .checkmark {
+  border: 2px solid var(--blue-dark);
+  background-color: var(--blue-dark) opacity(0.2);
+}
+
+.checkContainer input[type="checkbox"]:checked ~ .checkmark {
+  background-color: var(--purple-dark);
+  border: 2px solid var(--purple-dark);
+}
+
+.checkContainer input[type="checkbox"]:checked ~ .checkmark:hover {
+  background-color: var(--purple);
+  border: 2px solid var(--purple);
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkContainer input[type="checkbox"]:checked ~ .checkmark:after {
+  display: block;
+}
+
+.checkContainer .checkmark:after {
+  left: calc(25% + 1px);
+  top: calc(25% - 1.5px);
+  width: 3.5px;
+  height: 7px;
+
+  border: 1px solid var(--gray-100);
+  border-width: 0 1.5px 1.5px 0;
+
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.taskCard > p {
+  width: 632px;
+  height: fit-content;
+
+  font-size: 0.875rem;
+  color: var(--gray-100);
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.taskCard > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 24px;
+  height: 24px;
+
+  padding: auto;
+
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.taskCard > div > .trashButton {
+  width: 18px;
+  height: 20px;
+  stroke: var(--gray-300);
+  stroke-width: 2;
+  transition:
+    fill 0.2s ease-in-out,
+    stroke 0.2s ease-in-out;
+}
+
+/* .taskCard > div:hover {
+  background-color: var(--gray-400);
+} */
+
+.taskCard > div:hover > .trashButton {
+  fill: var(--gray-400);
+  stroke: var(--danger);
+  background: var(--gray-400);
+}

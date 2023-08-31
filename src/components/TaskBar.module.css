@@ -51,6 +51,7 @@
   background-color: var(--blue-dark);
 
   cursor: pointer;
+  transition: 0.1s background-color;
 }
 
 .taskBar button:hover {

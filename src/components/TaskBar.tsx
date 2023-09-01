@@ -1,17 +1,15 @@
-import { useState } from "react";
 import { Container } from "./Container";
 import styles from "./TaskBar.module.css";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 
-interface Task {
-  id: number;
-  title: string;
-  isComplete: boolean;
+import { iTask } from "../App";
+
+interface TaskBarProps {
+  taskList: iTask[];
+  setTaskList: React.Dispatch<React.SetStateAction<iTask[]>>;
 }
 
-export function TaskBar() {
-  const [taskList, setTaskList] = useState<Task[]>([]);
-
+export function TaskBar({ taskList, setTaskList }: TaskBarProps) {
   function handleCreateNewTask(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const input = e.currentTarget[0] as HTMLInputElement;

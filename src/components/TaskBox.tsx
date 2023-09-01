@@ -12,6 +12,9 @@ interface TaskBoxProps {
 }
 
 export function TaskBox({ taskList, setTaskList }: TaskBoxProps) {
+  const incompleteTasks = taskList.filter((task) => !task.isComplete);
+  const completeTasks = taskList.filter((task) => task.isComplete);
+
   return (
     <Container>
       <section className={styles.taskBox}>
@@ -20,7 +23,10 @@ export function TaskBox({ taskList, setTaskList }: TaskBoxProps) {
           <BlankTask />
         ) : (
           <section className={styles.taskList}>
-            {taskList.map((task) => (
+            {incompleteTasks.map((task) => (
+              <TaskCard key={task.id} task={task} setTaskList={setTaskList} />
+            ))}
+            {completeTasks.map((task) => (
               <TaskCard key={task.id} task={task} setTaskList={setTaskList} />
             ))}
           </section>

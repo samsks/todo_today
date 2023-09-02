@@ -1,10 +1,11 @@
 import { Header } from "./components/Header";
+import Cookies from "js-cookie";
 
 import "./global.css";
 import styles from "./App.module.css";
 import { TaskBar } from "./components/TaskBar";
 import { TaskBox } from "./components/TaskBox";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export interface iTask {
   id: number;
@@ -14,6 +15,23 @@ export interface iTask {
 
 function App() {
   const [taskList, setTaskList] = useState<iTask[]>([]);
+  const [isFirstRender, setIsFirstRender] = useState(true);
+
+  useEffect(() => {
+    if (isFirstRender) {
+      const storedTaskList = Cookies.get("taskList");
+      if (storedTaskList) {
+        setTaskList(JSON.parse(storedTaskList));
+      }
+      setIsFirstRender(false);
+    }
+  }, [isFirstRender]);
+
+  useEffect(() => {
+    if (!isFirstRender) {
+      Cookies.set("taskList", JSON.stringify(taskList));
+    }
+  }, [taskList, isFirstRender]);
 
   return (
     <div>

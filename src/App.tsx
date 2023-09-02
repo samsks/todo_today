@@ -29,7 +29,12 @@ function App() {
 
   useEffect(() => {
     if (!isFirstRender) {
-      Cookies.set("taskList", JSON.stringify(taskList));
+      const expirationDate = new Date();
+      expirationDate.setDate(expirationDate.getDate() + 7);
+
+      Cookies.set("taskList", JSON.stringify(taskList), {
+        expires: expirationDate,
+      });
     }
   }, [taskList, isFirstRender]);
 

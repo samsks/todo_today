@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { iTask } from "../App";
 import styles from "./TaskCard.module.css";
 
@@ -9,6 +10,9 @@ interface TaskCardProps {
 }
 
 export function TaskCard({ task, setTaskList }: TaskCardProps) {
+  const [isEditing, setIsEditing] = useState(false);
+  const [editedTitle, setEditedTitle] = useState(task.title);
+
   const handleCheckBoxChange = () => {
     setTaskList((stateTaskList) =>
       stateTaskList.map((stateTask) =>
@@ -17,6 +21,35 @@ export function TaskCard({ task, setTaskList }: TaskCardProps) {
           : stateTask
       )
     );
+  };
+
+  const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEditedTitle(e.target.value);
+  };
+
+  const handleTitleClick = () => {
+    setEditedTitle(task.title);
+    setIsEditing(true);
+  };
+
+  const handleTitleBlur = () => {
+    setTaskList((stateTaskList) =>
+      stateTaskList.map((stateTask) =>
+        stateTask.id === task.id
+          ? { ...stateTask, title: editedTitle }
+          : stateTask
+      )
+    );
+    setIsEditing(false);
+    console.log("editedTitle:", editedTitle);
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+
+      handleTitleBlur();
+    }
   };
 
   const handleDeleteTask = () => {
@@ -40,7 +73,19 @@ export function TaskCard({ task, setTaskList }: TaskCardProps) {
         <span className={styles.checkmark}></span>
       </label>
 
-      <p>{task.title}</p>
+      {isEditing ? (
+        <input
+          type="text"
+          className={styles.editableInput}
+          value={editedTitle}
+          onChange={handleTitleChange}
+          onBlur={handleTitleBlur}
+          onKeyDown={handleKeyDown}
+          autoFocus
+        />
+      ) : (
+        <p onClick={handleTitleClick}>{task.title}</p>
+      )}
       <div onClick={handleDeleteTask}>
         <HiOutlineTrash className={styles.trashButton} />
       </div>

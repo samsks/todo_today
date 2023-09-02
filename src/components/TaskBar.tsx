@@ -21,14 +21,15 @@ export function TaskBar({ taskList, setTaskList }: TaskBarProps) {
   function handleCreateNewTask(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    setTaskList((stateTaskList) => [
-      ...stateTaskList,
-      {
-        id: taskList[taskList.length - 1]?.id + 1 || 1,
-        title: newTaskText,
-        isComplete: false,
-      },
-    ]);
+    if (newTaskText.trim() !== "")
+      setTaskList((stateTaskList) => [
+        ...stateTaskList,
+        {
+          id: taskList[taskList.length - 1]?.id + 1 || 1,
+          title: newTaskText,
+          isComplete: false,
+        },
+      ]);
 
     setNewTaskText("");
   }

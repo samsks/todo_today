@@ -36,12 +36,15 @@ export function TaskCard({ task, setTaskList }: TaskCardProps) {
     setTaskList((stateTaskList) =>
       stateTaskList.map((stateTask) =>
         stateTask.id === task.id
-          ? { ...stateTask, title: editedTitle }
+          ? {
+              ...stateTask,
+              title: editedTitle.length > 0 ? editedTitle : task.title,
+            }
           : stateTask
       )
     );
+
     setIsEditing(false);
-    console.log("editedTitle:", editedTitle);
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {

@@ -14,7 +14,9 @@
   position: relative;
 }
 
-.taskCard:hover {
+.taskCard:hover,
+.taskCard:active,
+.taskCard:focus-within {
   animation: animateBorder 1.2s linear infinite;
 }
 

@@ -3,6 +3,7 @@ import styles from "./TaskBar.module.css";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 
 import { iTask } from "../App";
+import { ChangeEvent, FormEvent, InvalidEvent, useState } from "react";
 
 interface TaskBarProps {
   taskList: iTask[];
@@ -10,26 +11,43 @@ interface TaskBarProps {
 }
 
 export function TaskBar({ taskList, setTaskList }: TaskBarProps) {
-  function handleCreateNewTask(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    const input = e.currentTarget[0] as HTMLInputElement;
+  const [newTaskText, setNewTaskText] = useState("");
 
-    setTaskList([
-      ...taskList,
+  function handleNewTaskText(e: ChangeEvent<HTMLInputElement>) {
+    e.target.setCustomValidity("");
+    setNewTaskText(e.target.value);
+  }
+
+  function handleCreateNewTask(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+
+    setTaskList((stateTaskList) => [
+      ...stateTaskList,
       {
         id: taskList[taskList.length - 1]?.id + 1 || 1,
-        title: input.value,
+        title: newTaskText,
         isComplete: false,
       },
     ]);
 
-    input.value = "";
+    setNewTaskText("");
+  }
+
+  function handleNewTaskInvalid(event: InvalidEvent<HTMLInputElement>) {
+    event.target.setCustomValidity("Não deixe o título em branco");
   }
 
   return (
     <Container>
       <form onSubmit={handleCreateNewTask} className={styles.taskBar}>
-        <input type="text" placeholder="Adicione uma nova tarefa" />
+        <input
+          type="text"
+          placeholder="Adicione uma nova tarefa"
+          value={newTaskText}
+          onInput={handleNewTaskText}
+          onInvalid={handleNewTaskInvalid}
+          required
+        />
         <button type="submit">
           Criar
           <AiOutlinePlusCircle />

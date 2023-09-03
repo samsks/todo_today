@@ -1,8 +1,12 @@
 .bodyTasks {
   position: relative;
 
+  padding-bottom: 54px;
+
   width: 100vw;
   min-width: 315px;
-  height: calc(100vh - 200px);
+  height: fit-content;
+  min-height: calc(100vh - 200px);
+
   background: var(--gray-600);
 }

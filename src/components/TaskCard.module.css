@@ -12,12 +12,17 @@
   border: 1px solid var(--gray-300);
 
   position: relative;
+
+  transform: scale(1);
+  transition: transform 0.3s ease-in-out;
 }
 
 .taskCard:hover,
 .taskCard:active,
 .taskCard:focus-within {
   animation: animateBorder 1.2s linear infinite;
+  transition: transform 0.3s ease-in-out;
+  transform: scale(1.01);
 }
 
 @keyframes animateBorder {
@@ -177,10 +182,6 @@
     fill 0.2s ease-in-out,
     stroke 0.2s ease-in-out;
 }
-
-/* .taskCard > div:hover {
-  background-color: var(--gray-400);
-} */
 
 .taskCard > div:hover > .trashButton {
   fill: var(--gray-400);

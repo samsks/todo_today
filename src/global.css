@@ -39,6 +39,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+body {
+  overflow-x: hidden;
+}
 
 body,
 input,
@@ -47,4 +50,21 @@ button {
   font-family: "Inter", sans-serif;
   font-weight: 400;
   font-size: 1rem;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--gray-700);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--purple);
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--purple-dark);
 }

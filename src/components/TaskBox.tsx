@@ -11,8 +11,9 @@ interface TaskBoxProps {
 }
 
 export function TaskBox({ taskList, setTaskList }: TaskBoxProps) {
-  const incompleteTasks = taskList.filter((task) => !task.isComplete);
-  const completeTasks = taskList.filter((task) => task.isComplete);
+  const reverseTaskList = [...taskList].reverse();
+  const incompleteTasks = reverseTaskList.filter((task) => !task.isComplete);
+  const completeTasks = reverseTaskList.filter((task) => task.isComplete);
 
   return (
     <Container>

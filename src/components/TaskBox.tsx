@@ -11,9 +11,15 @@ interface TaskBoxProps {
 }
 
 export function TaskBox({ taskList, setTaskList }: TaskBoxProps) {
-  const reverseTaskList = [...taskList].reverse();
-  const incompleteTasks = reverseTaskList.filter((task) => !task.isComplete);
-  const completeTasks = reverseTaskList.filter((task) => task.isComplete);
+  const renderTaskList = (tasks: iTask[], isComplete: boolean) => {
+    const filteredTasks = [...tasks]
+      .reverse()
+      .filter((task) => task.isComplete === isComplete);
+
+    return filteredTasks.map((task) => (
+      <TaskCard key={task.id} task={task} setTaskList={setTaskList} />
+    ));
+  };
 
   return (
     <Container>
@@ -23,12 +29,8 @@ export function TaskBox({ taskList, setTaskList }: TaskBoxProps) {
           <BlankTask />
         ) : (
           <section className={styles.taskList}>
-            {incompleteTasks.map((task) => (
-              <TaskCard key={task.id} task={task} setTaskList={setTaskList} />
-            ))}
-            {completeTasks.map((task) => (
-              <TaskCard key={task.id} task={task} setTaskList={setTaskList} />
-            ))}
+            {renderTaskList(taskList, false)}
+            {renderTaskList(taskList, true)}
           </section>
         )}
       </section>

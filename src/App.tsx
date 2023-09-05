@@ -28,7 +28,7 @@ function App() {
       () => {
         setIsOpenProjectModal(true);
       },
-      Number(Cookies.get("modalReminder")) || 1
+      Number(Cookies.get("modalReminder")) || 30000
     );
     return () => clearTimeout(modalTimer);
   }, []);

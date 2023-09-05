@@ -1,6 +1,6 @@
-# PlanWithPurpose
+# ToDay
 
-Bem-vindo ao **ToDay**, um projeto simples de lista de tarefas construído com React e Vite. Este projeto tem como objetivo ajudá-lo a organizar suas tarefas e manter a produtividade, fornecendo uma interface intuitiva para gerenciar suas tarefas diárias de maneira eficaz.
+Bem-vindo ao **ToDay**, um projeto de lista de tarefas construído com React e Vite. Este projeto tem como objetivo ajudá-lo a organizar suas tarefas e manter a produtividade, fornecendo uma interface intuitiva para gerenciar suas tarefas diárias de maneira eficaz.
 
 ## Recursos
 

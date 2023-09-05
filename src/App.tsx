@@ -6,6 +6,7 @@ import styles from "./App.module.css";
 import { TaskBar } from "./components/TaskBar";
 import { TaskBox } from "./components/TaskBox";
 import { useEffect, useState } from "react";
+import { FeedbackModal } from "./components/modals/FeedbackModal";
 
 export interface iTask {
   id: number;
@@ -16,6 +17,21 @@ export interface iTask {
 function App() {
   const [taskList, setTaskList] = useState<iTask[]>([]);
   const [isFirstRender, setIsFirstRender] = useState(true);
+  const [linksClicked, setLinksClicked] = useState({
+    github: false,
+    linkedin: false,
+  });
+  const [isOpenProjectModal, setIsOpenProjectModal] = useState(false);
+
+  useEffect(() => {
+    const modalTimer = setTimeout(
+      () => {
+        setIsOpenProjectModal(true);
+      },
+      Number(Cookies.get("modalReminder")) || 1
+    );
+    return () => clearTimeout(modalTimer);
+  }, []);
 
   useEffect(() => {
     if (isFirstRender) {
@@ -39,12 +55,19 @@ function App() {
   }, [taskList, isFirstRender]);
 
   return (
-    <div>
+    <div className={styles.main}>
       <Header />
       <main className={styles.bodyTasks}>
         <TaskBar taskList={taskList} setTaskList={setTaskList} />
         <TaskBox taskList={taskList} setTaskList={setTaskList} />
       </main>
+      {isOpenProjectModal && (
+        <FeedbackModal
+          setIsOpenProjectModal={setIsOpenProjectModal}
+          linksClicked={linksClicked}
+          setLinksClicked={setLinksClicked}
+        />
+      )}
     </div>
   );
 }

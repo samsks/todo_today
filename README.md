@@ -1,6 +1,6 @@
 # PlanWithPurpose
 
-Bem-vindo ao **PlanWithPurpose**, um projeto simples de lista de tarefas construído com React e Vite. Este projeto tem como objetivo ajudá-lo a organizar suas tarefas e manter a produtividade, fornecendo uma interface intuitiva para gerenciar suas tarefas diárias de maneira eficaz.
+Bem-vindo ao **ToDay**, um projeto simples de lista de tarefas construído com React e Vite. Este projeto tem como objetivo ajudá-lo a organizar suas tarefas e manter a produtividade, fornecendo uma interface intuitiva para gerenciar suas tarefas diárias de maneira eficaz.
 
 ## Recursos
 
@@ -15,12 +15,12 @@ Siga estes passos para executar o projeto em sua máquina local:
 1. **Clone o repositório:**
 
    ```bash
-   git clone https://github.com/samsks/todo_planWithPurpose.git
+   git clone https://github.com/samsks/todo_today.git
 
 2. **Navegue até o diretório do projeto:**
 
    ```bash
-   cd todo_planWithPurpose
+   cd todo_today
 
 3. **Instale as dependências:**
 

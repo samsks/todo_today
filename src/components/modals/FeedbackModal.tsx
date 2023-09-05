@@ -63,7 +63,7 @@ export function FeedbackModal({
           <section>
             <span>Vamos nos conectar? 😄</span>
             <a
-              href="https://www.linkedin.com/in/sammvieira/"
+              href="https://www.linkedin.com/posts/sammvieira_reactjs-reacticons-typescript-activity-7104937620790484992-PF8W?utm_source=share&utm_medium=member_desktop"
               target="_blank"
               onClick={() => handleLinkClick("linkedin")}
             >

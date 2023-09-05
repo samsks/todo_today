@@ -129,6 +129,13 @@ a:hover .tooltip {
   color: var(--blue);
 
   cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+a:hover :is(.linkedInLink, .githubLink) {
+  color: var(--blue-dark);
+  transform: scale(1.7);
+  background-color: transparent;
 }
 
 .modalFooter {

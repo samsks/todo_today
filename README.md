@@ -6,7 +6,7 @@ Bem-vindo ao **ToDay**, um projeto de lista de tarefas construído com React e V
 
 - Adicione, edite e remova tarefas facilmente.
 - Marque tarefas como concluídas para acompanhar seu progresso.
-- Interface amigável para um gerenciamento de tarefas sem problemas.
+- Interface amigável e intuitiva para um gerenciamento de tarefas.
 
 ## Primeiros Passos
 
